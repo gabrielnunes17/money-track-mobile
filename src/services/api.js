@@ -22,17 +22,17 @@ export function buscarDespesa(id) {
   return requisicao("/despesas/" + id);
 }
 
-export function criarDespesa(plantacao) {
+export function criarDespesa(despesa) {
   return requisicao("/despesas", {
     method: "POST",
-    body: JSON.stringify(plantacao),
+    body: JSON.stringify(despesa),
   });
 }
 
-export function atualizarDespesa(id, plantacao) {
+export function atualizarDespesa(id, despesa) {
   return requisicao("/despesas/" + id, {
     method: "PUT",
-    body: JSON.stringify(plantacao),
+    body: JSON.stringify(despesa),
   });
 }
 

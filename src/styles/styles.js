@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
     marginBottom: 12,
   },
 
-  // ---------- Card da plantação ----------
+  // ---------- Card da despesa ----------
   card: {
     backgroundColor: cores.branco,
     borderRadius: 12,
@@ -73,10 +73,6 @@ export const styles = StyleSheet.create({
     overflow: "hidden",
     borderWidth: 1,
     borderColor: cores.borda,
-  },
-  cardFoto: {
-    width: "100%",
-    height: 150,
   },
   cardCorpo: {
     padding: 12,
@@ -122,34 +118,5 @@ export const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 14,
     fontSize: 16,
-  },
-  previewFoto: {
-    width: "100%",
-    height: 200,
-    borderRadius: 10,
-    marginBottom: 12,
-  },
-  textoLocalizacao: {
-    color: cores.textoClaro,
-    marginBottom: 12,
-  },
-
-  // ---------- Mapa ----------
-  mapa: {
-    flex: 1,
-  },
-
-  // ---------- IA ----------
-  caixaIA: {
-    backgroundColor: cores.fundo,
-    borderLeftWidth: 4,
-    borderLeftColor: cores.laranja,
-    borderRadius: 8,
-    padding: 12,
-    marginTop: 12,
-  },
-  textoIA: {
-    color: cores.texto,
-    lineHeight: 22,
   },
 });

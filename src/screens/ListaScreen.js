@@ -13,11 +13,17 @@ import { useIsFocused } from "@react-navigation/native";
 import { listarDespesas, removerDespesa } from "../services/api";
 import { cores, styles } from "../styles/styles";
 
+function formatarData(data) {
+  const partes = /^(\d{4})-(\d{2})-(\d{2})/.exec(
+    typeof data === "string" ? data : "",
+  );
+  return partes ? `${partes[3]}/${partes[2]}/${partes[1]}` : "";
+}
+
 export default function ListaScreen({ navigation }) {
   const [despesas, setDespesas] = useState([]);
   const [carregando, setCarregando] = useState(true);
 
-  // "true" sempre que esta tela está visível
   const telaVisivel = useIsFocused();
 
   async function carregar() {
@@ -31,7 +37,6 @@ export default function ListaScreen({ navigation }) {
     }
   }
 
-  // Recarrega a lista toda vez que o usuário volta para esta tela
   useEffect(() => {
     if (telaVisivel) {
       carregar();
@@ -86,12 +91,15 @@ export default function ListaScreen({ navigation }) {
             <View style={styles.cardCorpo}>
               <Text style={styles.cardTitulo}>{item.descricao}</Text>
               <Text style={styles.cardSubtitulo}>{item.valor}</Text>
+              <Text style={styles.cardSubtitulo}>{item.categoria}</Text>
+              <Text style={styles.cardSubtitulo}>{formatarData(item.data)}</Text>
+              <Text style={styles.cardSubtitulo}>{item.observacao}</Text>
 
               <View style={styles.cardAcoes}>
                 <TouchableOpacity
                   style={styles.botaoSecundario}
                   onPress={() =>
-                    navigation.navigate("Edicao", { id: item._id })
+                    navigation.navigate("Formulario", { id: item._id })
                   }
                 >
                   <Text style={styles.botaoSecundarioTexto}>Editar</Text>
