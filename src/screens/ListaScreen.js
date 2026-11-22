@@ -90,9 +90,13 @@ export default function ListaScreen({ navigation }) {
           <View style={styles.card}>
             <View style={styles.cardCorpo}>
               <Text style={styles.cardTitulo}>{item.descricao}</Text>
-              <Text style={styles.cardSubtitulo}>{item.valor}</Text>
+              <Text style={styles.cardSubtitulo}>
+                R$ {Number(item.valor).toFixed(2).replace(".", ",")}
+              </Text>
               <Text style={styles.cardSubtitulo}>{item.categoria}</Text>
-              <Text style={styles.cardSubtitulo}>{formatarData(item.data)}</Text>
+              <Text style={styles.cardSubtitulo}>
+                {formatarData(item.data)}
+              </Text>
               <Text style={styles.cardSubtitulo}>{item.observacao}</Text>
 
               <View style={styles.cardAcoes}>
